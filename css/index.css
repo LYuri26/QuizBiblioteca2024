@@ -38,7 +38,7 @@ header nav a:hover {
 
 /* Estilo do Container de Boas-Vindas */
 #bemVindoContainer {
-  margin-top: 100px; /* Adiciona uma margem superior para evitar sobreposição com o cabeçalho fixo */
+  margin-top: 130px; /* Adiciona uma margem superior para evitar sobreposição com o cabeçalho fixo */
   padding: 20px; /* Adiciona um preenchimento de 20px dentro do container */
   background-color: white; /* Define a cor de fundo do container como branco */
   border-radius: 10px; /* Adiciona bordas arredondadas ao container */
