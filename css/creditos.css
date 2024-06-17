@@ -5,6 +5,8 @@ body {
   margin: 0;
   padding: 0;
   position: relative; /* Para facilitar o posicionamento do pseudo-elemento */
+  padding-top: 260px;
+  padding-bottom: 130px;
 }
 
 body::before {
@@ -30,12 +32,16 @@ body::before {
   z-index: 1; /* Coloca o conteúdo acima do pseudo-elemento */
 }
 
+/* Estilo do Cabeçalho */
 header {
   background-color: #007bff; /* Bootstrap primary color */
   color: white;
   padding: 1rem 0;
   text-align: center;
-  margin-bottom: 2rem;
+  position: fixed; /* Fixa o cabeçalho no topo da página */
+  width: 100%; /* Define a largura do cabeçalho como 100% da página */
+  top: 0; /* Posiciona o cabeçalho no topo da janela */
+  z-index: 1000; /* Define a profundidade do cabeçalho para garantir que ele fique sobre outros elementos */
 }
 
 header h1 {
@@ -43,6 +49,17 @@ header h1 {
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   margin-top: 0;
+}
+
+header nav a {
+  color: white; /* Define a cor dos links de navegação como branco */
+  text-decoration: none; /* Remove o sublinhado dos links */
+  margin: 0 10px; /* Adiciona uma margem horizontal de 10px entre os links */
+  font-size: 16px; /* Define o tamanho da fonte dos links */
+}
+
+header nav a:hover {
+  text-decoration: underline; /* Adiciona sublinhado aos links quando o mouse passa sobre eles */
 }
 
 .lista-creditos {
@@ -83,14 +100,29 @@ header h1 {
   color: #0056b3;
 }
 
+/* Estilo do Rodapé */
 footer {
-  background-color: #343a40;
-  color: #fff;
-  text-align: center;
-  padding: 1rem 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #343a40; /* Cor de fundo */
+  color: white; /* Cor do texto */
+  padding: 10px 0; /* Preenchimento vertical */
+  text-align: center; /* Centraliza o texto */
+  margin-top: 130px;
 }
 
-.card-body {
+footer p {
+  margin: 5px 0; /* Margem vertical */
+  font-size: 14px; /* Tamanho da fonte */
+}
+
+.card-body-bottom {
+  font-size: 22px; /* Tamanho da fonte 22px */
+  text-align: center;
+  margin-top: 130px;
+}
+.card-body-top {
   font-size: 22px; /* Tamanho da fonte 22px */
   text-align: center;
 }

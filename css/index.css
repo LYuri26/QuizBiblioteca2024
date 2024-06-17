@@ -43,6 +43,8 @@ header nav a:hover {
   background-color: white; /* Define a cor de fundo do container como branco */
   border-radius: 10px; /* Adiciona bordas arredondadas ao container */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra ao redor do container */
+  margin-bottom: 130px;
+  margin-top: 130px;
 }
 
 /* Estilo dos Parágrafos */
@@ -59,14 +61,17 @@ header nav a:hover {
 
 /* Estilo do Rodapé */
 footer {
-  margin-top: 40px; /* Adiciona uma margem superior ao rodapé */
-  padding: 10px 0; /* Adiciona um preenchimento vertical de 10px ao rodapé */
-  text-align: center; /* Centraliza o texto dentro do rodapé */
-  background-color: #343a40; /* Define a cor de fundo do rodapé como cinza escuro */
-  color: white; /* Define a cor do texto do rodapé como branco */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #343a40; /* Cor de fundo */
+  color: white; /* Cor do texto */
+  padding: 10px 0; /* Preenchimento vertical */
+  text-align: center; /* Centraliza o texto */
+  margin-top: 130px;
 }
 
 footer p {
-  margin: 5px 0; /* Adiciona uma margem vertical de 5px ao redor dos parágrafos no rodapé */
-  font-size: 14px; /* Define o tamanho da fonte dos parágrafos no rodapé */
+  margin: 5px 0; /* Margem vertical */
+  font-size: 14px; /* Tamanho da fonte */
 }
