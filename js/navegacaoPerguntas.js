@@ -21,10 +21,15 @@ function mostrarPergunta() {
 
 // Função para mostrar a próxima pergunta
 function proximaPergunta() {
-  // Incrementa o índice da pergunta atual
-  perguntaAtual++;
-  // Chama a função para atualizar a exibição das perguntas
-  mostrarPergunta();
+  // Verifica se a pergunta atual foi respondida
+  if (perguntaRespondida()) {
+    // Incrementa o índice da pergunta atual
+    perguntaAtual++;
+    // Chama a função para atualizar a exibição das perguntas
+    mostrarPergunta();
+  } else {
+    alert("Por favor, responda à pergunta antes de continuar.");
+  }
 }
 
 // Função para mostrar a pergunta anterior
@@ -33,6 +38,21 @@ function perguntaAnterior() {
   perguntaAtual--;
   // Chama a função para atualizar a exibição das perguntas
   mostrarPergunta();
+}
+
+// Função para verificar se a pergunta atual foi respondida
+function perguntaRespondida() {
+  // Seleciona todas as respostas da pergunta atual
+  const respostas = document.querySelectorAll(`.question:nth-child(${perguntaAtual + 1}) input`);
+
+  // Verifica se ao menos uma resposta foi marcada
+  for (let i = 0; i < respostas.length; i++) {
+    if (respostas[i].checked) {
+      return true; // A pergunta foi respondida
+    }
+  }
+
+  return false; // A pergunta não foi respondida
 }
 
 // Função para atualizar a visibilidade dos botões de navegação
