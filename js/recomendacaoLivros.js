@@ -64,8 +64,8 @@ function recomendarLivro(pontuacao) {
 
   if (categoriaIndex !== -1) {
     // Seleciona os vetores de livros e URLs correspondentes à categoria favorita
-    let livrosCategoria = [];
-    let urlsCategoria = [];
+    let urlsCategoria = [];  // Declare URLs de forma local
+    let livrosCategoria = [];  // Declare livros de forma local
 
     switch (categoriaFavorita) {
       case "Fantasia":
@@ -145,6 +145,15 @@ function recomendarLivro(pontuacao) {
 
   // Redireciona para a página específica do livro recomendado
   window.location.href = urlLivroRecomendado;
+}
+
+// Função que processa o questionário e recomenda o livro
+function processarQuestionario() {
+  // Calcula a pontuação com base nas respostas
+  const pontuacao = calcularPontuacao(); // Implementação dessa função deve estar em algum lugar
+
+  // Recomenda um livro com base na pontuação
+  recomendarLivro(pontuacao);
 }
 
 // Função que processa o questionário e recomenda o livro
