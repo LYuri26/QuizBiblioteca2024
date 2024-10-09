@@ -42,12 +42,23 @@ function recomendarLivro(pontuacao) {
   let categoriaFavorita = "";
   let maiorPontuacao = 0;
 
+  // Vetor de categorias em ordem
+  const categorias = [
+    "Fantasia",                  
+    "Ficção Científica / Distopia", 
+    "Romance",                   
+    "Drama / Realismo",          
+    "Outros (Biografia / Histórico)", 
+    "Outros (Clássico)",         
+    "Outros (Fantasia / Épico)"  
+  ];
+
   // Itera sobre cada categoria para encontrar a que tem a maior pontuação
   for (let i = 0; i < categorias.length; i++) {
     const categoria = categorias[i];
 
-    // Acessa a pontuação da categoria correspondente a partir do objeto 'pontuacao'
-    const categoriaPontuacao = pontuacao[categoria];
+    // Acessa a pontuação da categoria correspondente a partir do vetor 'pontuacao'
+    const categoriaPontuacao = pontuacao[i];
 
     // Se a pontuação dessa categoria for maior que a maiorPontuacao, atualize
     if (categoriaPontuacao > maiorPontuacao) {

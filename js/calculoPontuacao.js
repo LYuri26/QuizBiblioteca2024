@@ -32,70 +32,38 @@ const pergunta8 = [7, 3, 5, 4, 2, 7, 4];  // Pergunta 8
 function calcularPontuacao() {
   // Itera sobre todas as perguntas (de 1 a 8)
   for (let i = 1; i <= 8; i++) {
-    // Seleciona a resposta marcada para a pergunta atual
-    const respostaSelecionada = document.querySelector(
-      `input[name="q${i}"]:checked`
-    );
+    const respostaSelecionada = document.querySelector(`input[name="q${i}"]:checked`);
 
     // Se há uma resposta selecionada
     if (respostaSelecionada) {
-      // Obtém o valor da resposta (A, B, C, etc.)
       const valorResposta = respostaSelecionada.value;
-
-      // Encontra o índice da resposta (A = 0, B = 1, C = 2, etc.)
       const indiceResposta = "ABCDEFG".indexOf(valorResposta);
 
-      // Obtém a categoria correspondente à resposta selecionada
-      const categoria = pontuacoesCategorias[indiceResposta];
-
-      // Adiciona a pontuação da resposta à categoria correspondente
-      switch (categoria) {
-        case "Fantasia":
-          pontuacaoFantasia += obterPontuacaoPorPergunta(i, indiceResposta);
-          break;
-        case "Ficção Científica / Distopia":
-          pontuacaoFiccaoCientifica += obterPontuacaoPorPergunta(i, indiceResposta);
-          break;
-        case "Romance":
-          pontuacaoRomance += obterPontuacaoPorPergunta(i, indiceResposta);
-          break;
-        case "Drama / Realismo":
-          pontuacaoDrama += obterPontuacaoPorPergunta(i, indiceResposta);
-          break;
-        case "Outros (Biografia / Histórico)":
-          pontuacaoOutrosBiografia += obterPontuacaoPorPergunta(i, indiceResposta);
-          break;
-        case "Outros (Clássico)":
-          pontuacaoOutrosClassico += obterPontuacaoPorPergunta(i, indiceResposta);
-          break;
-        case "Outros (Fantasia / Épico)":
-          pontuacaoOutrosFantasiaEpico += obterPontuacaoPorPergunta(i, indiceResposta);
-          break;
+      // Atualiza a pontuação de acordo com a resposta
+      switch (indiceResposta) {
+        case 0: pontuacaoFantasia += obterPontuacaoPorPergunta(i, indiceResposta); break; // Fantasia
+        case 1: pontuacaoFiccaoCientifica += obterPontuacaoPorPergunta(i, indiceResposta); break; // Ficção Científica
+        case 2: pontuacaoRomance += obterPontuacaoPorPergunta(i, indiceResposta); break; // Romance
+        case 3: pontuacaoDrama += obterPontuacaoPorPergunta(i, indiceResposta); break; // Drama
+        case 4: pontuacaoOutrosBiografia += obterPontuacaoPorPergunta(i, indiceResposta); break; // Outros (Biografia)
+        case 5: pontuacaoOutrosClassico += obterPontuacaoPorPergunta(i, indiceResposta); break; // Outros (Clássico)
+        case 6: pontuacaoOutrosFantasiaEpico += obterPontuacaoPorPergunta(i, indiceResposta); break; // Outros (Fantasia)
       }
-    }
+    }  
   }
 
-  // Exibe a pontuação calculada para cada categoria no console
-  console.log("Pontuação Final:");
-  console.log(`Fantasia: ${pontuacaoFantasia}`);
-  console.log(`Ficção Científica / Distopia: ${pontuacaoFiccaoCientifica}`);
-  console.log(`Romance: ${pontuacaoRomance}`);
-  console.log(`Drama / Realismo: ${pontuacaoDrama}`);
-  console.log(`Outros (Biografia / Histórico): ${pontuacaoOutrosBiografia}`);
-  console.log(`Outros (Clássico): ${pontuacaoOutrosClassico}`);
-  console.log(`Outros (Fantasia / Épico): ${pontuacaoOutrosFantasiaEpico}`);
-
-  // Retorna a pontuação calculada para cada categoria (se necessário)
-  return {
-    Fantasia: pontuacaoFantasia,
-    "Ficção Científica / Distopia": pontuacaoFiccaoCientifica,
-    Romance: pontuacaoRomance,
-    "Drama / Realismo": pontuacaoDrama,
-    "Outros (Biografia / Histórico)": pontuacaoOutrosBiografia,
-    "Outros (Clássico)": pontuacaoOutrosClassico,
-    "Outros (Fantasia / Épico)": pontuacaoOutrosFantasiaEpico,
-  };
+  // Retorna um vetor com a pontuação final de cada categoria
+  return [
+    pontuacaoFantasia,                // 0: Fantasia
+    pontuacaoFiccaoCientifica,        // 1: Ficção Científica / Distopia
+    pontuacaoRomance,                 // 2: Romance
+    pontuacaoDrama,                   // 3: Drama / Realismo
+    pontuacaoOutrosBiografia,         // 4: Outros (Biografia / Histórico)
+    pontuacaoOutrosClassico,          // 5: Outros (Clássico)
+    pontuacaoOutrosFantasiaEpico       // 6: Outros (Fantasia / Épico)
+  ];
 }
+
 
 // Função que retorna a pontuação de uma resposta para uma pergunta específica
 function obterPontuacaoPorPergunta(perguntaNumero, indiceResposta) {
